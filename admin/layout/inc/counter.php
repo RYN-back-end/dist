@@ -63,7 +63,7 @@ if ($countAllWorkoutsResultRecommendation->num_rows > 0) {
         <a href="nutrientsRecommendation.php" class="statistic col-sm-6 col-md-4 col-lg-3">
             <h5 class="top">
                 <i class="fa-light fa-hard-drive"></i>
-                Workouts Recommendation
+                Nutrients Recommendation
             </h5>
             <div class="body">
                 <h1 class="odometer"

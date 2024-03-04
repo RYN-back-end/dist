@@ -416,11 +416,11 @@ const AfterLogin = [
   },
   {
     title: "add food",
-    path: "/home/food.html"
+    path: "/home/food.php"
   },
   {
     title: "add workout",
-    path: "/home/addWorkout.html"
+    path: "/home/addWorkout.php"
   },
   {
     title: "setting",
@@ -898,7 +898,7 @@ const $$Astro$d = createAstro();
 const $$CaloriesCard = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$d, $$props, $$slots);
   Astro2.self = $$CaloriesCard;
-  return renderTemplate`${maybeRenderHead()}<div class="card mx-auto round-12"> <h2 class="title fs-18 fw-500 px-7 py-9 round-t-8">Your Daily Summary</h2> <!--  --> <div class="cardDetails py-10 px-14"> <ul class="goal d-flex align-items-center mb-10"> ${renderComponent($$result, "TextShapes", $$TextShapes, { "dir": "up", "htmlType": "li", "mainText": "", "subText": "Calories Remaining", "className": "top fs-48 fw-700", "id": "bmr", "subClass": "fs-12 fw-400" })} <li class="button pt-3"> ${renderComponent($$result, "Button", $$Button, { "type": "button", "airaLabel": "add food", "ClassName": "btn btn-skew round-6" }, { "default": ($$result2) => renderTemplate` <a href="/home/food.html" class="px-12 py-6 fs-14"> add food</a> ` })} ${renderComponent($$result, "Button", $$Button, { "type": "button", "airaLabel": "add food", "ClassName": "btn btn-skew round-6 ml-5" }, { "default": ($$result2) => renderTemplate` <a href="/home/addWorkout.html" class="px-12 py-6 fs-14"> add workout</a> ` })} </li> </ul> <!--  --> <hr> <ul class="d-flex align-items-center mt-10"> ${renderComponent($$result, "TextShapes", $$TextShapes, { "dir": "down", "htmlType": "li", "mainText": "2025", "subText": "goal", "className": "bottom fs-36 fw-600 mr-10  test", "subClass": "fs-14 fw-500", "id": "bmrUpdate" })} <li class="mr-10 fs-24 mb-8 fw-400 line">|</li> ${renderComponent($$result, "TextShapes", $$TextShapes, { "dir": "down", "htmlType": "li", "mainText": "121", "subText": "food", "className": "bottom fs-36 fw-600 mr-10", "subClass": "fs-14 fw-500", "id": "FoodTotal" })} <li class="separator mr-10 fs-24 mb-8 fw-700 round-4">-</li> ${renderComponent($$result, "TextShapes", $$TextShapes, { "dir": "down", "htmlType": "li", "mainText": "0", "subText": "EXERCISE", "className": "bottom fs-36 fw-600 mr-10", "subClass": "fs-14 fw-500" })} <li class="separator mr-10 fs-24 mb-8">=</li> ${renderComponent($$result, "TextShapes", $$TextShapes, { "dir": "down", "htmlType": "li", "mainText": "0", "subText": "net", "className": "bottom fs-36 fw-600 mr-10", "subClass": "fs-14 fw-500" })} </ul> <!--  --> </div> </div>`;
+  return renderTemplate`${maybeRenderHead()}<div class="card mx-auto round-12"> <h2 class="title fs-18 fw-500 px-7 py-9 round-t-8">Your Daily Summary</h2> <!--  --> <div class="cardDetails py-10 px-14"> <ul class="goal d-flex align-items-center mb-10"> ${renderComponent($$result, "TextShapes", $$TextShapes, { "dir": "up", "htmlType": "li", "mainText": "", "subText": "Calories Remaining", "className": "top fs-48 fw-700", "id": "bmr", "subClass": "fs-12 fw-400" })} <li class="button pt-3"> ${renderComponent($$result, "Button", $$Button, { "type": "button", "airaLabel": "add food", "ClassName": "btn btn-skew round-6" }, { "default": ($$result2) => renderTemplate` <a href="/home/food.php" class="px-12 py-6 fs-14"> add food</a> ` })} ${renderComponent($$result, "Button", $$Button, { "type": "button", "airaLabel": "add food", "ClassName": "btn btn-skew round-6 ml-5" }, { "default": ($$result2) => renderTemplate` <a href="/home/addWorkout.php" class="px-12 py-6 fs-14"> add workout</a> ` })} </li> </ul> <!--  --> <hr> <ul class="d-flex align-items-center mt-10"> ${renderComponent($$result, "TextShapes", $$TextShapes, { "dir": "down", "htmlType": "li", "mainText": "2025", "subText": "goal", "className": "bottom fs-36 fw-600 mr-10  test", "subClass": "fs-14 fw-500", "id": "bmrUpdate" })} <li class="mr-10 fs-24 mb-8 fw-400 line">|</li> ${renderComponent($$result, "TextShapes", $$TextShapes, { "dir": "down", "htmlType": "li", "mainText": "121", "subText": "food", "className": "bottom fs-36 fw-600 mr-10", "subClass": "fs-14 fw-500", "id": "FoodTotal" })} <li class="separator mr-10 fs-24 mb-8 fw-700 round-4">-</li> ${renderComponent($$result, "TextShapes", $$TextShapes, { "dir": "down", "htmlType": "li", "mainText": "0", "subText": "EXERCISE", "className": "bottom fs-36 fw-600 mr-10", "subClass": "fs-14 fw-500" })} <li class="separator mr-10 fs-24 mb-8">=</li> ${renderComponent($$result, "TextShapes", $$TextShapes, { "dir": "down", "htmlType": "li", "mainText": "0", "subText": "net", "className": "bottom fs-36 fw-600 mr-10", "subClass": "fs-14 fw-500" })} </ul> <!--  --> </div> </div>`;
 }, "D:/project/version/2/Astro/AtheleteZone/src/components/CaloriesCard.astro", void 0);
 
 const $$Astro$c = createAstro();
@@ -946,7 +946,7 @@ const $$AddWorkout = createComponent(async ($$result, $$props, $$slots) => {
 }, "D:/project/version/2/Astro/AtheleteZone/src/pages/home/addWorkout.astro", void 0);
 
 const $$file$4 = "D:/project/version/2/Astro/AtheleteZone/src/pages/home/addWorkout.astro";
-const $$url$4 = "/home/addWorkout.html";
+const $$url$4 = "/home/addWorkout.php";
 
 const addWorkout = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
@@ -994,7 +994,7 @@ const $$Food = createComponent(async ($$result, $$props, $$slots) => {
 }, "D:/project/version/2/Astro/AtheleteZone/src/pages/home/food.astro", void 0);
 
 const $$file$3 = "D:/project/version/2/Astro/AtheleteZone/src/pages/home/food.astro";
-const $$url$3 = "/home/food.html";
+const $$url$3 = "/home/food.php";
 
 const food = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,

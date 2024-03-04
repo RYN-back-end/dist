@@ -99,7 +99,7 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
     <!--control -->
     <section class="tableSection">
         <div class="tableHead">
-            <h6>Nutrients</h6>
+            <h6>Workouts</h6>
             <button class="btn customBtn" data-bs-toggle="modal" data-bs-target="#createModal">Add Recommendation
             </button>
         </div>

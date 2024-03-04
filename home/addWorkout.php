@@ -1,20 +1,3 @@
-<?php
-require 'system/helper.php';
-checkLogin();
-
-$user = $_SESSION['user'];
-
-echo "<script>localStorage.setItem('selectSex', '" . $user['sex'] . "');
-            localStorage.setItem('activeLevel', '" . $user['active_level'] . "');
-            localStorage.setItem('selectedGoal', '" . $user['goal'] . "');
-            localStorage.setItem('getBmr', '" . $user['bmr'] . "')
-            localStorage.setItem('UserName', '" . $user['name'] . "');
-            localStorage.setItem('weigh', '" . $user['weigh'] . "');
-            localStorage.setItem('height', '" . $user['height'] . "');
-            localStorage.setItem('age', '" . $user['age'] . "');</script>";
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head data-capo="">
@@ -50,11 +33,11 @@ echo "<script>localStorage.setItem('selectSex', '" . $user['sex'] . "');
             src: url(https://fonts.gstatic.com/s/rubik/v28/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-4I-1UA.ttf)
         }</style>
     <style>body {
-            font-family: Poppins, '_font_fallback_87498917975', sans-serif;
+            font-family: Poppins, '_font_fallback_1139463879284', sans-serif;
         }
 
         @font-face {
-            font-family: '_font_fallback_87498917975';
+            font-family: '_font_fallback_1139463879284';
             size-adjust: 105.79%;
             src: local('Arial');
             ascent-override: 88.38%;
@@ -93,83 +76,9 @@ echo "<script>localStorage.setItem('selectSex', '" . $user['sex'] . "');
             color: #74bee8
         }
     </style>
-    <link rel="stylesheet" href="./assets/css/addWorkout-Vev6MoTs.css">
-    <style>.home .card .cardDetails {
-            align-items: center;
-            display: grid;
-            justify-content: center
-        }
-
-        .home .card .cardDetails ul li.button button.btn-skew {
-            background-color: transparent;
-            border: 1px solid #4795c3;
-            color: #4795c3
-        }
-
-        .home .card .cardDetails ul li.button button.btn-skew a {
-            color: #4795c3;
-            transition: .25s ease-in-out
-        }
-
-        .home .card .cardDetails ul li.button button.btn-skew:hover, .home .card .cardDetails ul li.button button.btn-skew:hover a {
-            color: #fff
-        }
-
-        footer {
-            margin-top: 0
-        }
-
-        .home {
-            min-height: 70vh
-        }
-
-        .home .details {
-            padding-top: 12vh
-        }
-
-        .home .card {
-            background-image: linear-gradient(90deg, #fff 55% 55%, #f0f0f0 110% 110%);
-            box-shadow: 0 8px 32px #0000001f;
-            height: 100%;
-            max-width: 100%;
-            width: 600px
-        }
-
-        .home .card .title {
-            background-color: #4795c3;
-            color: #fff
-        }
-
-        .home .card .cardDetails hr {
-            opacity: .3
-        }
-
-        .home .card .cardDetails ul {
-            flex-flow: wrap
-        }
-
-        .home .card .cardDetails ul li.line {
-            height: 100%;
-            opacity: .2
-        }
-
-        .home .card .cardDetails ul li.bottom, .home .card .cardDetails ul li.top {
-            flex-direction: column
-        }
-
-        .home .card .cardDetails ul li.button {
-            margin-left: 5vh
-        }
-
-        .home .card .cardDetails ul li small, .home .card .cardDetails ul li.bottom, .home .card .cardDetails ul li.separator {
-            opacity: .8
-        }
-
-        .home #bmr span {
-            color: #4795c3
-        }
-
-        .btn-skew[data-astro-cid-6ygtcg62] {
+    <link rel="stylesheet" href="../assets/css/addWorkout-Vev6MoTs.css">
+    <link rel="stylesheet" href="../assets/css/addWorkout-JSNCN9wt.css">
+    <style>.btn-skew[data-astro-cid-6ygtcg62] {
             background-color: #00275b
         }
 
@@ -283,7 +192,7 @@ echo "<script>localStorage.setItem('selectSex', '" . $user['sex'] . "');
           href="https://fonts.gstatic.com/s/rubik/v28/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-2Y-1UA.ttf" type="font/ttf">
     <link as="font" crossorigin="" rel="preload"
           href="https://fonts.gstatic.com/s/rubik/v28/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-4I-1UA.ttf" type="font/ttf">
-    <script type="module" src="./assets/js/hoisted-vt9iUbyF.js"></script>
+    <script type="module" src="../assets/js/hoisted-WS6DMQRC.js"></script>
     <meta name="description" content="Astro description">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="generator" content="Astro v4.3.2">
@@ -293,41 +202,41 @@ echo "<script>localStorage.setItem('selectSex', '" . $user['sex'] . "');
     <header>
         <div class="container">
             <nav class="d-flex align-items-center py-6 justify-space-between"><a href="/" class="logo"> <img
-                            src="./assets/images/logo-nMkJhfTW_ZQniic.webp" alt="logo for AtheleteZone"
+                            src="../assets/images/logo-nMkJhfTW_ZQniic.webp" alt="logo for AtheleteZone"
                             class="img-cover"
                             width="705" height="227" loading="lazy" decoding="async"> </a>
                 <button type="button" aria-label="menu" aria-expanded="false" aria-controls="mobileResponsive"
                         class="btn icon-nav-base" data-astro-cid-6ygtcg62><span></span><span></span><span></span>
                 </button>
                 <ul class="navMenu beforeLogin d-flex align-items-center lg-max-d-none">
-                    <li class="nav-link pl-10 "><a href="home.html" class="fs-16 capitalize fw-600 relative"> home </a>
+                    <li class="nav-link pl-10 "><a href="../home.php" class="fs-16 capitalize fw-600 relative">
+                            home </a>
                     </li>
-                    <li class="nav-link pl-10 "><a href="home/food.php" class="fs-16 capitalize fw-600 relative"> add
+                    <li class="nav-link pl-10 "><a href="food.php" class="fs-16 capitalize fw-600 relative"> add
                             food </a></li>
-                    <li class="nav-link pl-10 "><a href="home/addWorkout.php"
+                    <li class="nav-link pl-10 "><a href="addWorkout.php"
                                                    class="fs-16 capitalize fw-600 relative"> add workout </a></li>
-                    <li class="nav-link pl-10 "><a href="home/setting.html" class="fs-16 capitalize fw-600 relative">
-                            setting </a></li>
-                    <li class="nav-link pl-10 "><a href="blog.html" class="fs-16 capitalize fw-600 relative"> blog </a>
+                    <li class="nav-link pl-10 "><a href="../blog.html" class="fs-16 capitalize fw-600 relative">
+                            blog </a>
                     </li>
-                    <li class="nav-link pl-10 "><a href="contact.html" class="fs-16 capitalize fw-600 relative">
+                    <li class="nav-link pl-10 "><a href="../contact.html" class="fs-16 capitalize fw-600 relative">
                             contact us </a></li>
                 </ul>
                 <div class="mobileMenu absolute  left-0 " id="mobileResponsive">
                     <ul class="NavMobile beforeLogin d-flex  ">
-                        <li class="nav-link  py-6 pl-10"><a href="home.html" class="fs-18 capitalize fw-600 relative ">
+                        <li class="nav-link  py-6 pl-10"><a href="../home.php"
+                                                            class="fs-18 capitalize fw-600 relative ">
                                 home </a></li>
-                        <li class="nav-link  py-6 pl-10"><a href="home/food.php"
+                        <li class="nav-link  py-6 pl-10"><a href="food.php"
                                                             class="fs-18 capitalize fw-600 relative "> add food </a>
                         </li>
-                        <li class="nav-link  py-6 pl-10"><a href="home/addWorkout.php"
+                        <li class="nav-link  py-6 pl-10"><a href="addWorkout.php"
                                                             class="fs-18 capitalize fw-600 relative "> add workout </a>
                         </li>
-                        <li class="nav-link  py-6 pl-10"><a href="home/setting.html"
-                                                            class="fs-18 capitalize fw-600 relative "> setting </a></li>
-                        <li class="nav-link  py-6 pl-10"><a href="blog.html" class="fs-18 capitalize fw-600 relative ">
+                        <li class="nav-link  py-6 pl-10"><a href="../blog.html"
+                                                            class="fs-18 capitalize fw-600 relative ">
                                 blog </a></li>
-                        <li class="nav-link  py-6 pl-10"><a href="contact.html"
+                        <li class="nav-link  py-6 pl-10"><a href="../contact.html"
                                                             class="fs-18 capitalize fw-600 relative "> contact us </a>
                         </li>
                     </ul>
@@ -335,44 +244,40 @@ echo "<script>localStorage.setItem('selectSex', '" . $user['sex'] . "');
             </nav>
         </div>
     </header>
+
     <section class="breadcrumb d-flex align-items-center justify-center">
-        <div class="container"><h1 class="title capitalize pb-5 text-center fs-r-36 fw-700 line-normal"> hi, <span
-                        id="userName"></span></h1></div>
+        <div class="container"><h1 class="title capitalize pb-5 text-center fs-r-36 fw-700 line-normal">
+                addworkout </h1>
+            <ul class="d-flex align-items-center justify-center">
+                <li class="linkPage">addworkout</li>
+                <li class="separator"></li>
+                <li class="defPage capitalize"><a href="/home.php" class=""> home </a></li>
+            </ul>
+        </div>
     </section>
-    <section class="home relative">
-        <div class="container">
-            <div class="details">
-                <div class="card mx-auto round-12"><h2 class="title fs-18 fw-500 px-7 py-9 round-t-8">Your Daily
-                        Summary</h2> <!--  -->
-                    <div class="cardDetails py-10 px-14">
-                        <ul class="goal d-flex align-items-center mb-10">
-                            <li class="d-flex top fs-48 fw-700" id="bmr"><small class="fs-12 fw-400">Calories
-                                    Remaining</small>
-                                <span></span></li>
-                            <li class="button pt-3">
-                                <button type="button" aria-label="add food" class="btn btn-skew round-6"
-                                        data-astro-cid-6ygtcg62><a href="home/food.php" class="px-12 py-6 fs-14"> add
-                                        food</a></button>
-                                <button type="button" aria-label="add food" class="btn btn-skew round-6 ml-5"
-                                        data-astro-cid-6ygtcg62><a href="home/addWorkout.php"
-                                                                   class="px-12 py-6 fs-14"> add workout</a></button>
-                            </li>
-                        </ul> <!--  -->
-                        <hr>
-                        <ul class="d-flex align-items-center mt-10">
-                            <li class="d-flex bottom fs-36 fw-600 mr-10  test" id="bmrUpdate"><span>2025</span>
-                                <small class="fs-14 fw-500">goal</small></li>
-                            <li class="mr-10 fs-24 mb-8 fw-400 line">|</li>
-                            <li class="d-flex bottom fs-36 fw-600 mr-10" id="FoodTotal"><span>121</span>
-                                <small class="fs-14 fw-500">food</small></li>
-                            <li class="separator mr-10 fs-24 mb-8 fw-700 round-4">-</li>
-                            <li class="d-flex bottom fs-36 fw-600 mr-10">0
-                                <small class="fs-14 fw-500">EXERCISE</small></li>
-                            <li class="separator mr-10 fs-24 mb-8">=</li>
-                            <li class="d-flex bottom fs-36 fw-600 mr-10">0
-                                <small class="fs-14 fw-500">net</small></li>
-                        </ul> <!--  --> </div>
+    <section class="workOut">
+        <div class="contaienr">
+            <div class="box box py-9 px-10 round-12"><p
+                        class="title text-center fs-24 fw-700 pb-10 capitalize title text-center fs-24 fw-700 pb-10 capitalize">
+                    add workout
+                </p>
+                <div class="form-group d-flex align-items-center pb-10"><label for="SearchWorkout"
+                                                                               class="fw-600 fs-18 pr-8">Search
+                        Workout</label> <input type="text" class="pl-5 round-6" name="SearchWorkout" id="SearchWorkout">
+                    <button type="button" aria-label="work out" class="btn btn-skew ml-8 px-9  fs-14 py-3 round-6 "
+                            data-astro-cid-6ygtcg62>
+                        search
+                    </button>
                 </div>
+                <div class="form-group d-flex align-items-center pb-10"><label for="Period" class="fw-600 fs-18 pr-12">Period</label>
+                    <input type="text" class="pl-5 round-6" id="Period" name="Period"></div>
+                <div class="form-group d-flex align-items-center pb-10"><label for="" class="fw-600 fs-18 pr-8">Burned
+                        Calotise</label> <input type="text" class="pl-5 round-6"></div>
+                <button type="button" aria-label="work out"
+                        class="btn btn-skew px-9  fs-14 py-3 round-6 d-flex align-items-center justify-center mx-auto skew-border"
+                        data-astro-cid-6ygtcg62>
+                    add workout
+                </button>
             </div>
         </div>
     </section>

@@ -7,14 +7,14 @@ $selectNutrientsResult = runQuery($selectNutrientsSql);
 
 
 if (isset($_POST['method']) && isset($_POST['id']) && $_POST['method'] == 'edit') {
-    $updateSql = "UPDATE nutrients SET `type` = '{$_POST['type']}' ,`qty` = '{$_POST['qty']}'  ,`calories_no` = '{$_POST['calories_no']}' WHERE `id` = '{$_POST['id']}'";
+    $updateSql = "UPDATE nutrients SET `type` = '{$_POST['type']}' ,`qty` = '{$_POST['qty']}'  ,`calories_no` = '{$_POST['calories_no']}' , `fats` = '{$_POST['fats']}', `protein` = '{$_POST['protein']}' , `carb` = '{$_POST['carb']}', `hint` = '{$_POST['hint']}' WHERE `id` = '{$_POST['id']}'";
 
     runQuery($updateSql);
     header("Location: index.php");
 }
 
 if (isset($_POST['method']) && $_POST['method'] == 'new') {
-    $insertSql = "INSERT INTO `nutrients`(`type`, `qty`, `calories_no`) VALUES ('{$_POST['type']}','{$_POST['qty']}','{$_POST['calories_no']}')";
+    $insertSql = "INSERT INTO `nutrients`(`type`, `qty`, `calories_no`,`fats` ,`protein` ,`carb` ,`hint`) VALUES ('{$_POST['type']}','{$_POST['qty']}','{$_POST['calories_no']}','{$_POST['fats']}', '{$_POST['protein']}','{$_POST['carb']}','{$_POST['hint']}' )";
     runQuery($insertSql);
     header("Location: index.php");
 }
@@ -71,10 +71,15 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
             <table id="table" class="table datatable table-bordered dt-responsive nowrap table-striped align-middle">
                 <thead>
                 <tr>
-                    <th>Type</th>
-                    <th>Quantity</th>
-                    <th>Number of calories</th>
-                    <th>Edit</th>
+                    <th>Nutrient Type</th>
+                    <th>Quantity(gm)</th>
+                    <th>Number of calories (cal)</th>
+                    <th>Fats</th>
+                    <th>Proteins</th>
+                    <th>Carbs</th>
+
+                    <th>Hint</th>
+                    <th>Edit Nutrient</th>
                     <th>Delete</th>
                 </tr>
                 </thead>
@@ -86,8 +91,13 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
 
                         <tr>
                             <td><?php echo $row['type'] ?></td>
-                            <td><?php echo $row['qty'] ?></td>
-                            <td><?php echo $row['calories_no'] ?></td>
+                            <td><?php echo $row['qty'] ?> gm</td>
+                            <td><?php echo $row['calories_no'] ?> cal</td>
+                            <td><?php echo $row['fats'] ?> </td>
+                            <td><?php echo $row['protein'] ?> </td>
+                            <td><?php echo $row['carb'] ?> </td>
+
+                            <td><?php echo $row['hint'] ?> </td>
                             <td>
                                 <button class="btn btn-info" data-bs-toggle="modal"
                                         data-bs-target="#editModal<?php echo $row['id'] ?>"><i
@@ -106,7 +116,7 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
                             <div class="modal-dialog ">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Edit </h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Edit Nutrient </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                     </div>
@@ -118,7 +128,7 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
                                             <div class="row">
                                                 <div class="col-sm-12 col-lg-12">
                                                     <div class="inputFeild">
-                                                        <label for="">Type</label>
+                                                        <label for="">Nutrient Type</label>
                                                         <input name="type" type="text" class="form-control"
                                                                required value="<?php echo $row['type'] ?>"
                                                                placeholder="Type">
@@ -126,11 +136,11 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
                                                 </div>
                                                 <div class="col-sm-12 col-lg-12">
                                                     <div class="inputFeild">
-                                                        <label for=""> Quantity </label>
+                                                        <label for=""> Quantity (gm)</label>
                                                         <input name="qty" type="number"
                                                                class="form-control" required
                                                                value="<?php echo $row['qty'] ?>"
-                                                               placeholder="Quantity">
+                                                               placeholder="Quantity in gm">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-lg-12">
@@ -142,7 +152,44 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
                                                                placeholder="Number of calories">
                                                     </div>
                                                 </div>
+                                                <div class="col-sm-12 col-lg-12">
+                                                    <div class="inputFeild">
+                                                        <label for="">Fats Number </label>
+                                                        <input name="fats" type="number"
+                                                               class="form-control" required
+                                                               value="<?php echo $row['fats'] ?>"
+                                                               placeholder="Number of Fats">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-lg-12">
+                                                    <div class="inputFeild">
+                                                        <label for=""> Proteins Number </label>
+                                                        <input name="protein" type="number"
+                                                               class="form-control" required
+                                                               value="<?php echo $row['protein'] ?>"
+                                                               placeholder="Number of proteins">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-lg-12">
+                                                    <div class="inputFeild">
+                                                        <label for=""> Number of Carbs </label>
+                                                        <input name="carb" type="number"
+                                                               class="form-control" required
+                                                               value="<?php echo $row['carb'] ?>"
+                                                               placeholder="Number of Carbs">
+                                                    </div>
+                                                </div>
 
+                                                <div class="col-sm-12 col-lg-12">
+                                                    <div class="inputFeild">
+                                                        <label for=""> Hint </label>
+
+                                                        <input name="hint" type="text"
+                                                               class="form-control" required
+                                                               value="<?php echo $row['hint'] ?>"
+                                                               placeholder="Hint">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -170,7 +217,7 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
         <div class="modal-dialog ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Workouts</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add Nutrients</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="" method="POST" enctype="multipart/form-data">
@@ -179,7 +226,7 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
                         <div class="row">
                             <div class="col-sm-12 col-lg-12">
                                 <div class="inputFeild">
-                                    <label for="">Type</label>
+                                    <label for="">Nutrient Type</label>
                                     <input name="type" type="text" class="form-control"
                                            required value=""
                                            placeholder="Type">
@@ -187,11 +234,11 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
                             </div>
                             <div class="col-sm-12 col-lg-12">
                                 <div class="inputFeild">
-                                    <label for=""> Quantity </label>
+                                    <label for=""> Quantity (gm) </label>
                                     <input name="qty" type="number"
                                            class="form-control" required
                                            value=""
-                                           placeholder="Quantity">
+                                           placeholder="Quantity in gm">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-12">
@@ -201,6 +248,43 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
                                            class="form-control" required
                                            value=""
                                            placeholder="Number of calories">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-12">
+                                <div class="inputFeild">
+                                    <label for="">Fats Number </label>
+                                    <input name="fats" type="number"
+                                           class="form-control" required
+                                           value=""
+                                           placeholder="Number of Fats">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-12">
+                                <div class="inputFeild">
+                                    <label for=""> Proteins Number </label>
+                                    <input name="protein" type="number"
+                                           class="form-control" required
+                                           value=""
+                                           placeholder="Number of proteins">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-12">
+                                <div class="inputFeild">
+                                    <label for=""> Number of Carbs </label>
+                                    <input name="carb" type="number"
+                                           class="form-control" required
+                                           value=""
+                                           placeholder="Number of Carbs">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-lg-12">
+                                <div class="inputFeild">
+                                    <label for=""> Hint </label>
+                                    <input name="hint" type="text"
+                                           class="form-control" required
+                                           value=""
+                                           placeholder="Hint">
                                 </div>
                             </div>
                         </div>

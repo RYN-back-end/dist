@@ -74,7 +74,7 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
                 <thead>
                 <tr>
                     <th>Type</th>
-                    <th>Time</th>
+                    <th>Time in mintes</th>
                     <th>burned calories</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -88,8 +88,8 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
 
                         <tr>
                             <td><?php echo $row['type'] ?></td>
-                            <td><?php echo $row['time'] ?></td>
-                            <td><?php echo $row['burned_calories'] ?></td>
+                            <td><?php echo $row['time'] ?> min</td>
+                            <td><?php echo $row['burned_calories'] ?> cal</td>
                             <td>
                                 <button class="btn btn-info" data-bs-toggle="modal"
                                         data-bs-target="#editModal<?php echo $row['id'] ?>"><i
@@ -132,7 +132,7 @@ if (isset($_GET['method']) && $_GET['method'] == 'DELETE' && isset($_GET['id']))
                                                         <input name="time" type="number"
                                                                class="form-control" required
                                                                value="<?php echo $row['time'] ?>"
-                                                               placeholder="Quantity">
+                                                               placeholder="time (min)">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12 col-lg-12">
