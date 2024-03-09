@@ -337,7 +337,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                     </li>
                     <li class="nav-link pl-10 "><a href="About.html" class="fs-16 capitalize fw-600 relative"> About
                             us </a></li>
-                    <li class="nav-link pl-10 "><a href="blog.html" class="fs-16 capitalize fw-600 relative"> blog </a>
+                    <li class="nav-link pl-10 "><a href="foodRecommendation.php" class="fs-16 capitalize fw-600 relative"> blog </a>
                     </li>
                     <li class="nav-link pl-10 "><a href="workout.html" class="fs-16 capitalize fw-600 relative">
                             workout </a></li>
@@ -351,7 +351,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                         <li class="nav-link  py-6 pl-10"><a href="About.html"
                                                             class="fs-18 capitalize fw-600 relative "> About us </a>
                         </li>
-                        <li class="nav-link  py-6 pl-10"><a href="blog.html" class="fs-18 capitalize fw-600 relative ">
+                        <li class="nav-link  py-6 pl-10"><a href="foodRecommendation.php" class="fs-18 capitalize fw-600 relative ">
                                 blog </a></li>
                         <li class="nav-link  py-6 pl-10"><a href="workout.html"
                                                             class="fs-18 capitalize fw-600 relative "> workout </a></li>

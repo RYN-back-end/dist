@@ -49,7 +49,8 @@ checkLogin();
             descent-override: 23.63%;
             line-gap-override: 0.00%;
         }</style>
-    <style>.breadcrumb {
+    <style>
+        .breadcrumb {
             background-color: #04152d;
             color: #fff;
             height: 30vh;
@@ -83,7 +84,8 @@ checkLogin();
     </style>
     <link rel="stylesheet" href="../assets/css/addWorkout-Vev6MoTs.css">
     <link rel="stylesheet" href="../assets/css/addWorkout-JSNCN9wt.css">
-    <style>.btn-skew[data-astro-cid-6ygtcg62] {
+    <style>
+        .btn-skew[data-astro-cid-6ygtcg62] {
             background-color: #00275b
         }
 
@@ -221,7 +223,7 @@ checkLogin();
                             food </a></li>
                     <li class="nav-link pl-10 "><a href="addWorkout.php"
                                                    class="fs-16 capitalize fw-600 relative"> add workout </a></li>
-                    <li class="nav-link pl-10 "><a href="../blog.html" class="fs-16 capitalize fw-600 relative">
+                    <li class="nav-link pl-10 "><a href="../foodRecommendation.php" class="fs-16 capitalize fw-600 relative">
                             blog </a>
                     </li>
                     <li class="nav-link pl-10 "><a href="../contact.html" class="fs-16 capitalize fw-600 relative">
@@ -238,7 +240,7 @@ checkLogin();
                         <li class="nav-link  py-6 pl-10"><a href="addWorkout.php"
                                                             class="fs-18 capitalize fw-600 relative "> add workout </a>
                         </li>
-                        <li class="nav-link  py-6 pl-10"><a href="../blog.html"
+                        <li class="nav-link  py-6 pl-10"><a href="../foodRecommendation.php"
                                                             class="fs-18 capitalize fw-600 relative ">
                                 blog </a></li>
                         <li class="nav-link  py-6 pl-10"><a href="../contact.html"

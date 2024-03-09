@@ -1,3 +1,8 @@
+<?php
+require '../system/helper.php';
+checkLogin();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head data-capo="">
@@ -32,7 +37,8 @@
             font-display: swap;
             src: url(https://fonts.gstatic.com/s/rubik/v28/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-4I-1UA.ttf)
         }</style>
-    <style>body {
+    <style>
+        body {
             font-family: Poppins, '_font_fallback_1139463879284', sans-serif;
         }
 
@@ -44,7 +50,8 @@
             descent-override: 23.63%;
             line-gap-override: 0.00%;
         }</style>
-    <style>.breadcrumb {
+    <style>
+        .breadcrumb {
             background-color: #04152d;
             color: #fff;
             height: 30vh;
@@ -78,7 +85,8 @@
     </style>
     <link rel="stylesheet" href="../assets/css/addWorkout-Vev6MoTs.css">
     <link rel="stylesheet" href="../assets/css/addWorkout-JSNCN9wt.css">
-    <style>.btn-skew[data-astro-cid-6ygtcg62] {
+    <style>
+        .btn-skew[data-astro-cid-6ygtcg62] {
             background-color: #00275b
         }
 
@@ -216,8 +224,11 @@
                             food </a></li>
                     <li class="nav-link pl-10 "><a href="addWorkout.php"
                                                    class="fs-16 capitalize fw-600 relative"> add workout </a></li>
-                    <li class="nav-link pl-10 "><a href="../blog.html" class="fs-16 capitalize fw-600 relative">
-                            blog </a>
+                    <li class="nav-link  pl-10 "><a href="../foodRecommendation.php"
+                                                    class="fs-16 capitalize fw-600 relative"> Food Recommendation </a>
+                    </li>
+                    <li class="nav-link  pl-10 "><a href="../workOutRecommendation.php"
+                                                    class="fs-16 capitalize fw-600 relative"> Workout Recommendation </a>
                     </li>
                     <li class="nav-link pl-10 "><a href="../contact.html" class="fs-16 capitalize fw-600 relative">
                             contact us </a></li>
@@ -233,9 +244,12 @@
                         <li class="nav-link  py-6 pl-10"><a href="addWorkout.php"
                                                             class="fs-18 capitalize fw-600 relative "> add workout </a>
                         </li>
-                        <li class="nav-link  py-6 pl-10"><a href="../blog.html"
-                                                            class="fs-18 capitalize fw-600 relative ">
-                                blog </a></li>
+                        <li class="nav-link py-6  pl-10 "><a href="../foodRecommendation.php"
+                                                        class="fs-16 capitalize fw-600 relative"> Food Recommendation </a>
+                        </li>
+                        <li class="nav-link py-6 pl-10 "><a href="../workOutRecommendation.php"
+                                                        class="fs-16 capitalize fw-600 relative"> Workout Recommendation </a>
+                        </li>
                         <li class="nav-link  py-6 pl-10"><a href="../contact.html"
                                                             class="fs-18 capitalize fw-600 relative "> contact us </a>
                         </li>
@@ -261,11 +275,14 @@
                         class="title text-center fs-24 fw-700 pb-10 capitalize title text-center fs-24 fw-700 pb-10 capitalize">
                     add workout
                 </p>
-                <div class="form-group d-flex align-items-center pb-10"><label for="SearchWorkout"
+                <div class="form-group d-flex align-items-center pb-10" id="AddWorkout"><label for="SearchWorkout"
                                                                                class="fw-600 fs-18 pr-8">Search
-                        Workout</label> <input type="text" class="pl-5 round-6" name="SearchWorkout" id="SearchWorkout">
+                        Workout</label>
+                    <input type="text" class="pl-5 round-6" name="SearchWorkout" id="SearchWorkout">
+                    <ul class="list"></ul>
+
                     <button type="button" aria-label="work out" class="btn btn-skew ml-8 px-9  fs-14 py-3 round-6 "
-                            data-astro-cid-6ygtcg62>
+                            data-astro-cid-6ygtcg62 id="searching">
                         search
                     </button>
                 </div>
@@ -329,5 +346,7 @@
         </div>
     </footer>
 </main>
+<script src="../assets/js/jquery-3.7.1.min.js"></script>
+
 </body>
 </html>

@@ -398,7 +398,7 @@ const BeforeLogin = [
   },
   {
     title: "blog",
-    path: "/blog.html"
+    path: "/foodRecommendation.php"
   },
   {
     title: "workout",
@@ -428,7 +428,7 @@ const AfterLogin = [
   },
   {
     title: "blog",
-    path: "/blog.html"
+    path: "/foodRecommendation.php"
   },
   {
     title: "contact us",
@@ -824,7 +824,7 @@ const $$Blog = createComponent(async ($$result, $$props, $$slots) => {
 }, "D:/project/version/2/Astro/AtheleteZone/src/pages/blog.astro", void 0);
 
 const $$file$7 = "D:/project/version/2/Astro/AtheleteZone/src/pages/blog.astro";
-const $$url$7 = "/blog.html";
+const $$url$7 = "/foodRecommendation.php";
 
 const blog = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
