@@ -33,11 +33,10 @@ function H(a) {
 
 let c = (a, e) => {
     let t = q.cells[a];
-    console.log(t);
+    // console.log(t);
     let i = 0;
     for (let o = 1; o < f.length - 1; o++) {
         let u = f[o].getElementsByTagName("td")[a];
-        console.log(u);
         let d = Number(u.innerText);
         i += d
     }
@@ -54,16 +53,21 @@ function h() {
     let a = 0, e = document.querySelectorAll(".totalKcal");
     for (let t = 0; t < e.length; t++) {
         let i = e[t].innerText.trim();
-        a += Number(i), localStorage.setItem("allTotal", a.toString())
+        a += Number(i), localStorage.setItem(`allTotal${currentDate()}`, a.toString())
     }
 }
-
+function currentDate() {
+    var dt = new Date();
+    return dt.getFullYear() + "-" + ((dt.getMonth() + 1) < 9 ? "0" + (dt.getMonth() + 1) : (dt.getMonth() + 1)) + "-" + (dt.getDate() < 9 ? `0${dt.getDate()}` : dt.getDate());
+}
 let O = (a, e, t) => {
     let i;
     r && (i = r.value);
     let o;
     p && (o = p.value);
     let u = C.insertRow(), d = u.insertCell(0);
+
+    saveFood(o,)
     d.setAttribute("class", "food-type"), d.innerHTML = o, u.insertCell(1).innerHTML = i, u.insertCell(2).innerHTML = e.toString(), u.insertCell(3).innerHTML = t.toString(), u.insertCell(4).innerHTML = a.toString();
     let _ = u.insertCell(5);
     _.setAttribute("class", "deleteRow"), _.innerHTML = `
