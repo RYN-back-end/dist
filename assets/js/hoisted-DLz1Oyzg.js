@@ -67,7 +67,6 @@ let O = (a, e, t) => {
     p && (o = p.value);
     let u = C.insertRow(), d = u.insertCell(0);
 
-    saveFood(o,)
     d.setAttribute("class", "food-type"), d.innerHTML = o, u.insertCell(1).innerHTML = i, u.insertCell(2).innerHTML = e.toString(), u.insertCell(3).innerHTML = t.toString(), u.insertCell(4).innerHTML = a.toString();
     let _ = u.insertCell(5);
     _.setAttribute("class", "deleteRow"), _.innerHTML = `

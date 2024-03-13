@@ -1,12 +1,7 @@
 <?php
 require '../system/helper.php';
 checkLogin();
-$selectSql = "SELECT * FROM `workouts`";
-$selectResult = runQuery($selectSql);
-$rows = array();
-while ($row = $selectResult->fetch_assoc()) {
 
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,13 +37,12 @@ while ($row = $selectResult->fetch_assoc()) {
             font-display: swap;
             src: url(https://fonts.gstatic.com/s/rubik/v28/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-4I-1UA.ttf)
         }</style>
-    <style>
-        body {
-            font-family: Poppins, '_font_fallback_1139463879284', sans-serif;
+    <style>body {
+            font-family: Poppins, '_font_fallback_242211735704', sans-serif;
         }
 
         @font-face {
-            font-family: '_font_fallback_1139463879284';
+            font-family: '_font_fallback_242211735704';
             size-adjust: 105.79%;
             src: local('Arial');
             ascent-override: 88.38%;
@@ -205,16 +199,10 @@ while ($row = $selectResult->fetch_assoc()) {
           href="https://fonts.gstatic.com/s/rubik/v28/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-2Y-1UA.ttf" type="font/ttf">
     <link as="font" crossorigin="" rel="preload"
           href="https://fonts.gstatic.com/s/rubik/v28/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-4I-1UA.ttf" type="font/ttf">
-    <script type="module" src="../assets/js/hoisted-WS6DMQRC.js"></script>
+    <script type="module" src="../assets/js/hoisted-DLz1Oyzg.js"></script>
     <meta name="description" content="Astro description">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="generator" content="Astro v4.3.2">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
-    <style>
-        span.select2.select2-container.select2-container--default {
-            width: 50% !important;
-        }
-    </style>
 </head>
 <body>
 <main>
@@ -235,11 +223,8 @@ while ($row = $selectResult->fetch_assoc()) {
                             food </a></li>
                     <li class="nav-link pl-10 "><a href="addWorkout.php"
                                                    class="fs-16 capitalize fw-600 relative"> add workout </a></li>
-                    <li class="nav-link  pl-10 "><a href="../foodRecommendation.php"
-                                                    class="fs-16 capitalize fw-600 relative"> Food Recommendation </a>
-                    </li>
-                    <li class="nav-link  pl-10 "><a href="../workOutRecommendation.php"
-                                                    class="fs-16 capitalize fw-600 relative"> Workout Recommendation </a>
+                    <li class="nav-link pl-10 "><a href="../foodRecommendation.php" class="fs-16 capitalize fw-600 relative">
+                            blog </a>
                     </li>
                     <li class="nav-link pl-10 "><a href="../contact.html" class="fs-16 capitalize fw-600 relative">
                             contact us </a></li>
@@ -255,12 +240,9 @@ while ($row = $selectResult->fetch_assoc()) {
                         <li class="nav-link  py-6 pl-10"><a href="addWorkout.php"
                                                             class="fs-18 capitalize fw-600 relative "> add workout </a>
                         </li>
-                        <li class="nav-link py-6  pl-10 "><a href="../foodRecommendation.php"
-                                                        class="fs-16 capitalize fw-600 relative"> Food Recommendation </a>
-                        </li>
-                        <li class="nav-link py-6 pl-10 "><a href="../workOutRecommendation.php"
-                                                        class="fs-16 capitalize fw-600 relative"> Workout Recommendation </a>
-                        </li>
+                        <li class="nav-link  py-6 pl-10"><a href="../foodRecommendation.php"
+                                                            class="fs-18 capitalize fw-600 relative ">
+                                blog </a></li>
                         <li class="nav-link  py-6 pl-10"><a href="../contact.html"
                                                             class="fs-18 capitalize fw-600 relative "> contact us </a>
                         </li>
@@ -269,42 +251,141 @@ while ($row = $selectResult->fetch_assoc()) {
             </nav>
         </div>
     </header>
-
     <section class="breadcrumb d-flex align-items-center justify-center">
-        <div class="container"><h1 class="title capitalize pb-5 text-center fs-r-36 fw-700 line-normal">
-                addworkout </h1>
+        <div class="container"><h1 class="title capitalize pb-5 text-center fs-r-36 fw-700 line-normal"> food </h1>
             <ul class="d-flex align-items-center justify-center">
-                <li class="linkPage">addworkout</li>
+                <li class="linkPage">food</li>
                 <li class="separator"></li>
-                <li class="defPage capitalize"><a href="/home.php" class=""> home </a></li>
+                <li class="defPage capitalize"><a href="../home.php" class=""> home </a></li>
             </ul>
         </div>
     </section>
-    <section class="workOut">
-        <div class="contaienr">
-            <div class="box box py-9 px-10 round-12"><p
-                        class="title text-center fs-24 fw-700 pb-10 capitalize title text-center fs-24 fw-700 pb-10 capitalize">
-                    add workout
-                </p>
-                <div class="form-group d-flex align-items-center pb-10" id="AddWorkout"><label for="SearchWorkout"
-                                                                               class="fw-600 fs-18 pr-8">Search
-                        Workout</label>
-                    <input type="text" class="pl-5 round-6" name="SearchWorkout" id="SearchWorkout">
-                    <ul class="list"></ul>
-
-                    <button type="button" aria-label="work out" class="btn btn-skew ml-8 px-9  fs-14 py-3 round-6 "
-                            data-astro-cid-6ygtcg62 id="searching">
-                        search
-                    </button>
-                </div>
-                <div class="form-group d-flex align-items-center pb-10"><label for="Period" class="fw-600 fs-18 pr-12">Period</label>
-                    <input type="text" class="pl-5 round-6" id="Period" name="Period"></div>
-                <div class="form-group d-flex align-items-center pb-10"><label for="" class="fw-600 fs-18 pr-8">Burned
-                        Calotise</label> <input type="text" class="pl-5 round-6"></div>
-                <button type="button" aria-label="work out"
-                        class="btn btn-skew px-9  fs-14 py-3 round-6 d-flex align-items-center justify-center mx-auto skew-border"
+    <section class="food relative">
+        <div class="container">
+            <table>
+                <thead>
+                <tr>
+                    <td class="food-title">Breakfast</td>
+                    <td>Calories <br> <span>kcal</span></td>
+                    <td>Carbs <br> <span>g</span></td>
+                    <td>Fat <br> <span>g</span></td>
+                    <td>Protein <br> <span>g</span></td>
+                    <td class="delete"></td>
+                </tr>
+                </thead>
+                <tbody class="BreakfastBody"></tbody>
+                <tfoot>
+                <tr>
+                    <td class="food-type">
+                        <button type="button" aria-label="add food" aria-controls="AddFoodModel" data-type="breakfast"
+                                class="btn btn-skew round-6 addFood skew-border clicked" data-astro-cid-6ygtcg62>
+                            add food
+                        </button>
+                    </td>
+                    <td class="totalKcal"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tfoot>
+            </table>
+            <hr> <!--  -->
+            <table>
+                <thead>
+                <tr>
+                    <td class="food-title">Lunch</td>
+                    <td style="visibility: hidden;">Calories <br> <span>kcal</span></td>
+                    <td style="visibility: hidden;">Carbs <br> <span>g</span></td>
+                    <td style="visibility: hidden;">Fat <br> <span>g</span></td>
+                    <td style="visibility: hidden;">Protein <br> <span>g</span></td> <!-- <td class="delete"></td> -->
+                </tr>
+                </thead>
+                <tbody class="BreakfastBody"></tbody>
+                <tfoot>
+                <tr>
+                    <td class="food-type">
+                        <button type="button" aria-label="add food" aria-controls="AddFoodModel" data-type="lunch"
+                                class="btn btn-skew round-6 addFood skew-border clicked" data-astro-cid-6ygtcg62>
+                            add food
+                        </button>
+                    </td>
+                    <td class="totalKcal"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tfoot>
+            </table> <!--  -->
+            <hr> <!--  -->
+            <table>
+                <thead>
+                <tr>
+                    <td class="food-title">Dinner</td>
+                    <td style="visibility: hidden;">Calories <br> <span>kcal</span></td>
+                    <td style="visibility: hidden;">Carbs <br> <span>g</span></td>
+                    <td style="visibility: hidden;">Fat <br> <span>g</span></td>
+                    <td style="visibility: hidden;">Protein <br> <span>g</span></td> <!-- <td class="delete"></td> -->
+                </tr>
+                </thead>
+                <tbody class="BreakfastBody"></tbody>
+                <tfoot>
+                <tr>
+                    <td class="food-type">
+                        <button type="button" aria-label="add food" aria-controls="AddFoodModel" data-type="dinner"
+                                class="btn btn-skew round-6 addFood skew-border clicked" data-astro-cid-6ygtcg62>
+                            add food
+                        </button>
+                    </td>
+                    <td class="totalKcal"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tfoot>
+            </table> <!--  --> </div>
+        <div class="model fixed" id="AddFoodModel">
+            <div class="box py-9 px-10 round-12"><p
+                        class="title text-center fs-24 fw-700 pb-10 capitalize showTitle"></p>
+                <form class="search">
+                    <div class="form-group d-flex align-items-center pb-10"><label class="fw-600 fs-18 pr-8"
+                                                                                   for="inputSearch">search food</label>
+                        <div class="relative search-box"><input type="text" placeholder="search food" name="inputSearch"
+                                                                id="inputSearch" class="pl-5 round-6">
+                            <ul class="list"></ul>
+                        </div>
+                        <button type="button" aria-label="search food"
+                                class="btn btn-skew ml-8 px-9  fs-14 py-3 round-6 searching" data-astro-cid-6ygtcg62>
+                            search
+                        </button>
+                    </div>
+                </form>
+                <div class="form-group d-flex align-items-center pb-10"><label for="quantity" class="fw-600 fs-18 pr-8">quantity</label>
+                    <input type="text" placeholder="quantity" id="quantity" name="quantity" class="pl-5 round-6"></div>
+                <div class="form-group d-flex align-items-center pb-10"><label class="fw-600 fs-18 pr-8" for="calories">calories</label>
+                    <input type="text" placeholder="calories" id="calories" name="calories" class="pl-5 round-6"
+                           disabled></div>
+                <button type="button" aria-label="search food"
+                        class="add btn btn-skew px-9  fs-14 py-3 round-6 d-flex align-items-center justify-center mx-auto skew-border"
                         data-astro-cid-6ygtcg62>
-                    add workout
+                    add food
+                </button>
+                <button type="button" aria-label="close menu" aria-expanded="true" aria-controls="AddFoodModel"
+                        class=" btn icon-close" data-astro-cid-6ygtcg62>
+                    <svg width="1em" height="1em" viewBox="0 0 24 24" data-icon="close">
+                        <symbol id="ai:local:close">
+                            <g fill="none" stroke="currentColor" stroke-dasharray="16" stroke-dashoffset="16"
+                               stroke-linecap="round" stroke-width="2">
+                                <path d="m7 7 10 10">
+                                    <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="16;0"/>
+                                </path>
+                                <path d="M17 7 7 17">
+                                    <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s"
+                                             values="16;0"/>
+                                </path>
+                            </g>
+                        </symbol>
+                        <use xlink:href="#ai:local:close"></use>
+                    </svg>
                 </button>
             </div>
         </div>
@@ -358,7 +439,6 @@ while ($row = $selectResult->fetch_assoc()) {
     </footer>
 </main>
 <script src="../assets/js/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 </body>
 </html>
