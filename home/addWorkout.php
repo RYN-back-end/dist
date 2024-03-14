@@ -3,10 +3,34 @@ require '../system/helper.php';
 checkLogin();
 $selectSql = "SELECT * FROM `workouts`";
 $selectResult = runQuery($selectSql);
+
 $rows = array();
 while ($row = $selectResult->fetch_assoc()) {
-
+    $smallArray['id'] = $row['id'];
+    $smallArray['type'] = $row['type'];
+    $smallArray['time'] = $row['time'];
+    $smallArray['burned_calories'] = $row['burned_calories'];
+    $rows[] = $smallArray;
 }
+
+if (isset($_POST['date']))
+{
+
+    $checkExistsSql = "SELECT * FROM workout_history WHERE `user_id` = '{$_SESSION['user']['id']}' AND `date` = '{$_POST['date']}' AND `workout_id` = '{$_POST['workout_id']}'";
+    $checkExistsResult = runQuery($checkExistsSql);
+    if ($checkExistsResult->num_rows > 0) {
+        $updateSql = "UPDATE `workout_history` SET `workout_id` = '{$_POST['workout_id']}' , `calories` = '{$_POST['calories']}' WHERE `user_id` = '{$_SESSION['user']['id']}' AND `date` = '{$_POST['date']}' AND `workout_id` = '{$_POST['workout_id']}'";
+        runQuery($updateSql);
+        header('LOCATION: addWorkout.php');
+    }else{
+        $insertSql = "INSERT INTO workout_history (`user_id`,workout_id,calories,`date`) VALUES 
+                                                             ('{$_SESSION['user']['id']}','{$_POST['workout_id']}','{$_POST['calories']}','{$_POST['date']}')";
+
+        runQuery($insertSql);
+        header('LOCATION: addWorkout.php');
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -239,7 +263,8 @@ while ($row = $selectResult->fetch_assoc()) {
                                                     class="fs-16 capitalize fw-600 relative"> Food Recommendation </a>
                     </li>
                     <li class="nav-link  pl-10 "><a href="../workOutRecommendation.php"
-                                                    class="fs-16 capitalize fw-600 relative"> Workout Recommendation </a>
+                                                    class="fs-16 capitalize fw-600 relative"> Workout
+                            Recommendation </a>
                     </li>
                     <li class="nav-link pl-10 "><a href="../contact.html" class="fs-16 capitalize fw-600 relative">
                             contact us </a></li>
@@ -256,10 +281,12 @@ while ($row = $selectResult->fetch_assoc()) {
                                                             class="fs-18 capitalize fw-600 relative "> add workout </a>
                         </li>
                         <li class="nav-link py-6  pl-10 "><a href="../foodRecommendation.php"
-                                                        class="fs-16 capitalize fw-600 relative"> Food Recommendation </a>
+                                                             class="fs-16 capitalize fw-600 relative"> Food
+                                Recommendation </a>
                         </li>
                         <li class="nav-link py-6 pl-10 "><a href="../workOutRecommendation.php"
-                                                        class="fs-16 capitalize fw-600 relative"> Workout Recommendation </a>
+                                                            class="fs-16 capitalize fw-600 relative"> Workout
+                                Recommendation </a>
                         </li>
                         <li class="nav-link  py-6 pl-10"><a href="../contact.html"
                                                             class="fs-18 capitalize fw-600 relative "> contact us </a>
@@ -281,33 +308,42 @@ while ($row = $selectResult->fetch_assoc()) {
         </div>
     </section>
     <section class="workOut">
-        <div class="contaienr">
+        <form class="contaienr" action="" method="post">
             <div class="box box py-9 px-10 round-12"><p
                         class="title text-center fs-24 fw-700 pb-10 capitalize title text-center fs-24 fw-700 pb-10 capitalize">
                     add workout
                 </p>
-                <div class="form-group d-flex align-items-center pb-10" id="AddWorkout"><label for="SearchWorkout"
-                                                                               class="fw-600 fs-18 pr-8">Search
-                        Workout</label>
-                    <input type="text" class="pl-5 round-6" name="SearchWorkout" id="SearchWorkout">
-                    <ul class="list"></ul>
-
-                    <button type="button" aria-label="work out" class="btn btn-skew ml-8 px-9  fs-14 py-3 round-6 "
-                            data-astro-cid-6ygtcg62 id="searching">
-                        search
-                    </button>
+                <div class="form-group d-flex align-items-center pb-10"><label for="Period"
+                                                                               class="fw-600 fs-18 pr-12">Date</label>
+                    <input type="date" class="pl-5 round-6" id="date" required name="date">
                 </div>
-                <div class="form-group d-flex align-items-center pb-10"><label for="Period" class="fw-600 fs-18 pr-12">Period</label>
-                    <input type="text" class="pl-5 round-6" id="Period" name="Period"></div>
+
+                <div class="form-group d-flex align-items-center pb-10" id="AddWorkout">
+                    <label for="SearchWorkout"
+                           class="fw-600 fs-18 pr-8">Workout</label>
+                    <select class="js-example-basic-single" id="workout-select" required name="workout_id">
+                        <option value="" selected disabled>select workout</option>
+                        <?php
+                        foreach ($rows as $row) {
+                            ?>
+                            <option value="<?php echo $row['id'] ?>"><?php echo $row['type'] ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group d-flex align-items-center pb-10"><label for="Period" class="fw-600 fs-18 pr-12">Time in mintes</label>
+                    <input type="text" class="pl-5 round-6" id="Period" disabled name="Period"></div>
                 <div class="form-group d-flex align-items-center pb-10"><label for="" class="fw-600 fs-18 pr-8">Burned
-                        Calotise</label> <input type="text" class="pl-5 round-6"></div>
-                <button type="button" aria-label="work out"
+                        Calories</label>
+                    <input type="text" class="pl-5 round-6" readonly id="calories" name="calories"></div>
+                <button type="submit" aria-label="work out"
                         class="btn btn-skew px-9  fs-14 py-3 round-6 d-flex align-items-center justify-center mx-auto skew-border"
                         data-astro-cid-6ygtcg62>
                     add workout
                 </button>
             </div>
-        </div>
+        </form>
     </section>
     <footer>
         <div class="container d-flex align-items-start justify-space-between">
@@ -359,6 +395,21 @@ while ($row = $selectResult->fetch_assoc()) {
 </main>
 <script src="../assets/js/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
+<script>
+    var rows = <?php echo json_encode($rows); ?>;
+    var row;
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+    $(document).on('change', '#workout-select', function () {
+        var id = $(this).val();
+        row = rows.filter(item => item.id === id)[0];
+        if (row) {
+            $('#qty').val(1)
+            $('#Period').val(row.time)
+            $('#calories').val(row.burned_calories)
+        }
+    })
+</script>
 </body>
 </html>

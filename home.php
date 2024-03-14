@@ -13,7 +13,11 @@ echo "<script>localStorage.setItem('selectSex', '" . $user['sex'] . "');
             localStorage.setItem('height', '" . $user['height'] . "');
             localStorage.setItem('age', '" . $user['age'] . "');</script>";
 
+$data = $_GET['date'] ?? date('Y-m-d');
 
+$getFoodHistorySql = "SELECT * FROM food_history WHERE `user_id` = '{$_SESSION['user']['id']}' AND `date` = '{$data}'";
+$getFoodHistoryResult = runQuery($getFoodHistorySql);
+$totalCalories = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -276,6 +280,33 @@ echo "<script>localStorage.setItem('selectSex', '" . $user['sex'] . "');
                 top: 0
             }
         }
+
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
     </style>
     <link as="font" crossorigin="" rel="preload"
           href="https://fonts.gstatic.com/s/rubik/v28/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-B4i1UA.ttf" type="font/ttf">
@@ -379,11 +410,53 @@ echo "<script>localStorage.setItem('selectSex', '" . $user['sex'] . "');
                             <li class="d-flex bottom fs-36 fw-600 mr-10">0
                                 <small class="fs-14 fw-500">EXERCISE</small></li>
                             <li class="separator mr-10 fs-24 mb-8">=</li>
-                            <li class="d-flex bottom fs-36 fw-600 mr-10">0
-                                <small class="fs-14 fw-500">net</small></li>
-                        </ul> <!--  --> </div>
+                            <li class="d-flex bottom fs-36 fw-600 mr-10"><span id="netTotal">0</span>
+                                <small class="fs-14 fw-500 " >net</small></li>
+                        </ul> <!--  -->
+                    </div>
+                    <div class="box box py-9 px-10 round-12"><p
+                                class="title text-center fs-24 fw-700 pb-10 capitalize title text-center fs-24 fw-700 pb-10 capitalize">
+                            food history
+                        </p>
+                        <div class="form-group d-flex align-items-center pb-10"
+                             style="justify-content: center;margin-top: 10px">
+                            <input type="date" class="pl-5 round-6" id="date" value="<?php echo $data; ?>" required
+                                   name="date">
+                        </div>
+
+
+                        <table id="customers">
+                            <tr>
+                                <th>Type</th>
+                                <th>Food</th>
+                                <th>Qty</th>
+                                <th>calories</th>
+                            </tr>
+                            <?php
+                            while ($row = $getFoodHistoryResult->fetch_assoc()) {
+
+                                $selectFoodSql = "SELECT * FROM `nutrients` where `id` = '{$row['food_id']}'";
+                                $selectFoodResult = runQuery($selectFoodSql);
+                                $food = $selectFoodResult->fetch_assoc()['type'] ?? '';
+                                ?>
+                                <tr>
+                                    <td><?php echo $row['type'] ?></td>
+                                    <td><?php echo $food ?></td>
+                                    <td><?php echo $row['qty'] ?></td>
+                                    <td><?php echo $row['calories'] ?></td>
+                                </tr>
+                                <?php
+                                $totalCalories = $totalCalories+$row['calories'];
+                            }
+                            ?>
+
+                        </table>
+
+                    </div>
                 </div>
+
             </div>
+
         </div>
     </section>
     <footer>
@@ -434,5 +507,16 @@ echo "<script>localStorage.setItem('selectSex', '" . $user['sex'] . "');
         </div>
     </footer>
 </main>
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).on('change', '#date', function () {
+        var date = $(this).val()
+        window.location.href = location.origin + location.pathname + `?date=${date}`;
+    })
+    r = "<?php echo  $totalCalories;?>";
+
+    document.querySelector("#FoodTotal span").innerHTML = "<?php echo  $totalCalories;?>"
+    document.querySelector("#netTotal").innerHTML = localStorage.getItem("getBmr") - r
+</script>
 </body>
 </html>
